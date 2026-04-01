@@ -8,7 +8,7 @@ cover_image:
 
 If you're building an MCP server and your auth strategy is "just pass an API key in the header," this post is for you.
 
-I run a production MCP server with 43 tools that powers a WhatsApp/SMS bot platform called ExtremeBot. Multi-tenant. Scoped access. Token rotation. The whole thing runs on Laravel with a custom OAuth 2.1 implementation using PKCE (S256). I'm going to walk you through exactly how I built it and why.
+I run a production MCP server with 43 tools that powers a multi-channel messaging platform. Multi-tenant. Scoped access. Token rotation. The whole thing runs on Laravel with a custom OAuth 2.1 implementation using PKCE (S256). I'm going to walk you through exactly how I built it and why.
 
 ## Why MCP Needs OAuth 2.1
 
