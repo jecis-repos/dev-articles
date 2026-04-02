@@ -1,5 +1,5 @@
 ---
-title: "My Staging System Leaked 6 Orphaned Databases Every Monday — Saga Pattern Fixed It"
+title: "6 Orphaned Databases Every Monday — How the Saga Pattern Cleaned Up My Staging System"
 published: false
 description: "A 16-step provisioning pipeline with compensating transactions. When step 14 fails, only steps 13 through 1 get rolled back. Zero orphaned resources."
 tags: devops, typescript, infrastructure, patterns
