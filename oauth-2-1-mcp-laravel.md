@@ -1,7 +1,7 @@
 ---
-title: "Building OAuth 2.1 for MCP in Laravel — The Complete Guide"  
+title: "I Built OAuth 2.1 for MCP Instead of Using Passport — Here's the 400 Lines That Replaced It"
 published: false
-description: "How to implement spec-compliant OAuth 2.1 with PKCE for Model Context Protocol servers in Laravel. Production patterns from a 43-tool MCP system."
+description: "Spec-compliant PKCE S256, timing-safe verification, scope-encoded refresh tokens, and per-user tool overrides. No Passport, no Sanctum — just Laravel."
 tags: laravel, mcp, oauth, security
 cover_image: 
 ---

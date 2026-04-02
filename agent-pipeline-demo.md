@@ -1,15 +1,15 @@
 ---
-title: "Self-Correcting Agent Pipelines: How to Build Autonomous AI That Fixes Its Own Mistakes"
+title: "Self-Correcting Agent Pipelines: How I Stopped My AI From Lying to Users"
 published: false
-description: "Production patterns from JoeTheMate — an AI WhatsApp bot with 2,775 tests and 17 modules. 4-layer directed pipelines, failure feedback loops, swarm decomposition, and the state machine that holds it all together."
+description: "4-layer directed pipelines, failure feedback loops, swarm decomposition, and the 7-state conversation machine that makes autonomous AI actually reliable in production."
 tags: ai, agents, laravel, architecture
 cover_image:
 canonical_url:
 ---
 
-Most agent tutorials show you a single LLM call with a system prompt. That works for demos. It does not work when your bot handles real WhatsApp conversations 24/7 and a hallucinated response means a confused human staring at their phone.
+Most agent tutorials show you a single LLM call with a system prompt. That works for demos. It does not work when your bot handles real conversations 24/7 and a hallucinated response means a confused human staring at their phone.
 
-This article covers the production patterns I built into **JoeTheMate** — an autonomous AI WhatsApp assistant backed by 2,775 tests across 17 modules. The core insight: agents should not be monolithic. They should be **pipelines of specialists that correct each other's failures**.
+This article covers the production patterns I built into an autonomous AI assistant backed by 2,700+ tests across 17 modules. The core insight: agents should not be monolithic. They should be **pipelines of specialists that correct each other's failures**.
 
 I will walk through the architecture, show real code, and explain how each layer prevents the kind of silent failures that make agent systems unreliable.
 
@@ -30,7 +30,7 @@ The fix is not "better prompts." The fix is **structure** — decomposing agent 
 
 ## Pattern 1: The 4-Layer Directed Pipeline
 
-Every complex task in JoeTheMate flows through four specialist layers:
+Every complex task in the system flows through four specialist layers:
 
 ```
 Coordinator → E2E Mapping → Coding → Verification
@@ -224,7 +224,7 @@ Handling partial failure is important. If 8 out of 10 sub-tasks succeed, you do 
 
 ## Pattern 4: The 7-State Conversation Machine
 
-Every WhatsApp conversation in JoeTheMate is governed by a finite state machine with 7 states:
+Every WhatsApp conversation in the system is governed by a finite state machine with 7 states:
 
 | State | Purpose | Valid transitions |
 |---|---|---|
@@ -255,7 +255,7 @@ This prevents the most common agent failure mode: getting stuck in a loop. If th
 
 ## Pattern 5: 10 Specialist Agent Roles
 
-JoeTheMate defines 10 distinct roles, each with its own optimized system prompt:
+the system defines 10 distinct roles, each with its own optimized system prompt:
 
 1. **Coordinator** — decomposes tasks, assigns to other roles
 2. **Researcher** — gathers context from codebase and documentation
@@ -318,4 +318,4 @@ That is what a self-correcting agent pipeline buys you. Not perfect first attemp
 
 ---
 
-*If you are building something similar or want to dig into any of these patterns, find me at [github.com/coolJecis](https://github.com/coolJecis) or [@ananiel_ on Threads](https://threads.net/@ananiel_).*
+*If you are building something similar or want to dig into any of these patterns, find me at [github.com/jecis-repos](https://github.com/jecis-repos) or [@ananiel_ on Threads](https://threads.net/@ananiel_).*

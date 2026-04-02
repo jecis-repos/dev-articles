@@ -1,14 +1,14 @@
 ---
-title: "Build Your Own Staging System, Part 2: YAML AST Editing with Validation"
+title: "Stop Using Regex on docker-compose.yml — YAML AST Editing That Actually Works"
 published: false
-description: "Stop using regex to edit docker-compose.yml. Use the YAML AST to add services, modify ports, and preserve comments — with automated validation and backup recovery."
+description: "My third rewrite of Docker Compose editing. String concat broke. Regex broke worse. AST editing has survived 3 months and 15+ concurrent services."
 tags: devops, typescript, yaml, docker
 series: "Build Your Own Staging System"
 cover_image:
 canonical_url:
 ---
 
-In [Part 1](https://dev.to/jecis/build-your-own-staging-system-part-1-saga-pattern-for-infrastructure-provisioning), I covered using the Saga pattern to roll back failed provisioning steps. One of those steps is "add a service block to `docker-compose.yml`." Sounds simple. It nearly broke me.
+In Part 1, I covered using the Saga pattern to roll back failed provisioning steps. One of those steps is "add a service block to `docker-compose.yml`." Sounds simple. It nearly broke me.
 
 My staging system manages a single `docker-compose.yml` that can have 15+ service definitions at any given time — one per open pull request. Services get added, modified, and removed constantly. The compose file is the source of truth for what's running on the staging server.
 

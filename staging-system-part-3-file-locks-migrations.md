@@ -1,14 +1,14 @@
 ---
-title: "Build Your Own Staging System, Part 3: POSIX File Locks and Out-of-Order Migration Detection"
+title: "Two CI Runners, One Config File — The File Lock That Saved My Staging Server"
 published: false
-description: "How to prevent two CI runners from corrupting shared config files, detect diverged database migrations, and allocate ports without collisions."
+description: "POSIX advisory locks with stale PID recovery, SHA-256 migration divergence detection, and a gap-filling port allocator. The concurrency chapter."
 tags: devops, typescript, linux, database
 series: "Build Your Own Staging System"
 cover_image:
 canonical_url:
 ---
 
-In [Part 1](https://dev.to/jecis/build-your-own-staging-system-part-1-saga-pattern-for-infrastructure-provisioning), we covered saga-based rollback for provisioning pipelines. In [Part 2](https://dev.to/jecis/build-your-own-staging-system-part-2-yaml-ast-editing-with-validation), we built a safe YAML editing layer for Docker Compose files. But we glossed over a critical question: what happens when two pull requests get pushed at the same time?
+In Part 1, we covered saga-based rollback for provisioning pipelines. In Part 2, we built a safe YAML editing layer for Docker Compose files. But we glossed over a critical question: what happens when two pull requests get pushed at the same time?
 
 The answer, if you're not careful, is file corruption.
 

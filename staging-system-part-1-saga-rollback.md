@@ -1,7 +1,7 @@
 ---
-title: "Build Your Own Staging System, Part 1: Saga Pattern for Infrastructure Provisioning"
+title: "My Staging System Leaked 6 Orphaned Databases Every Monday — Saga Pattern Fixed It"
 published: false
-description: "How a 16-step provisioning pipeline uses compensating transactions to guarantee zero orphaned resources — even when things go wrong at step 14."
+description: "A 16-step provisioning pipeline with compensating transactions. When step 14 fails, only steps 13 through 1 get rolled back. Zero orphaned resources."
 tags: devops, typescript, infrastructure, patterns
 series: "Build Your Own Staging System"
 cover_image:
